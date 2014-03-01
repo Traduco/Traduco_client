@@ -11,14 +11,18 @@ traducoApp.config(['$routeProvider', '$httpProvider',
 
     // Taking care of routing
     $routeProvider.
+      when('/login', {
+        templateUrl: 'partials/login.html',
+        controller: 'LoginCtrl'
+      }).
       when('/projects', {
         templateUrl: 'partials/project-list.html',
         controller: 'ProjectListCtrl'
       }).
-    //   when('/phones/:phoneId', {
-    //     templateUrl: 'partials/phone-detail.html',
-    //     controller: 'PhoneDetailCtrl'
-    //   }).
+      when('/projects/new', {
+        templateUrl: 'partials/phone-detail.html',
+        controller: 'PhoneDetailCtrl'
+      }).
     otherwise({
       redirectTo: '/login'
     });
