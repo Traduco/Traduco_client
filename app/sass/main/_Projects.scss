@@ -1,0 +1,25 @@
+/*
+ * Keep here the css for the project list page
+ */
+
+.row {
+	.header {
+
+	}
+
+	div {
+		&.project-name {
+			width: 200px;
+		}
+		&.project-admin {
+			width: 200px;
+		}
+		&.project-progress {
+			width: 200px;
+			vertical-align: top;
+			> div {
+				width: inherit;
+			}
+		}
+	}
+}

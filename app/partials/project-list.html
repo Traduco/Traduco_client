@@ -1,0 +1,27 @@
+<div class="page-header page-header-projects">
+    <button ng-click="newProject()" type="button" class="btn btn-default right-buttons-header">New Project</button>
+    <h1>Projects</h1>
+</div>
+
+<div class="table table-projects">
+    <div class="row head">
+        <div class="project-name">Name</div>
+        <div class="project-admin">Administrators</div>
+        <div class="project-progress">Progress</div>
+        <div>Status</div>
+    </div>
+    <div class="body">
+        <div class="row" ng-repeat="project in projects" ng-click="openProject()">
+            <div class="project-name">{{project.name}}</div>
+            <div class="project-admin">{{project.users}}</div>
+            <div class="project-progress">
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="{{getProjectPercentage(project) | number:0 }}" aria-valuemin="0" aria-valuemax="100" style="width: {{getProjectPercentage(project) | number:2 }}%;">
+                    </div>
+                </div>
+            </div>
+            <div class=""><span class="label label-success">up-to-date</span></div>
+
+        </div>
+    </div>
+</div>

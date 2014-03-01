@@ -2,15 +2,47 @@
  * In this file you should write your main styles. (or centralize your imports)
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
-/* line 17, ../../../../../../.rvm/gems/ruby-1.9.3-p484/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/*@import "compass/reset";*/
+/*
+ * Keep here default css for the site theme
+ */
+/* line 5, ../sass/main/_General.scss */
+.right-buttons-header {
+  float: right;
+}
 
+/* line 9, ../sass/main/_General.scss */
+.row div {
+  display: inline-block;
+}
 
-/* line 8, ../sass/screen.scss */
+/*
+ * Keep here the css for the project list page
+ */
+/* line 11, ../sass/main/_Projects.scss */
+.row div.project-name {
+  width: 200px;
+}
+/* line 14, ../sass/main/_Projects.scss */
+.row div.project-admin {
+  width: 200px;
+}
+/* line 17, ../sass/main/_Projects.scss */
+.row div.project-progress {
+  width: 200px;
+  vertical-align: top;
+}
+/* line 20, ../sass/main/_Projects.scss */
+.row div.project-progress > div {
+  width: inherit;
+}
+
+/* line 10, ../sass/screen.scss */
 body {
   padding-top: 50px;
 }
 
-/* line 11, ../sass/screen.scss */
+/* line 13, ../sass/screen.scss */
 .starter-template {
   padding: 40px 15px;
   text-align: center;
