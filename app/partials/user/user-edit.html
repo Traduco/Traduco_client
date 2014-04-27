@@ -1,0 +1,21 @@
+<!-- Header -->
+<div class="page-header page-header-projects">
+	<div class="right-buttons-header">
+        <div ng-if="user.is_site_admin">
+    	   <button type="button" data-toggle="modal" data-target="#modal_confirm_delete" class="btn btn-danger">Delete</button>
+        </div>
+	</div>
+    <h1>{{person.full_name}} <small>Edit user</small></h1>
+</div>
+
+<!-- <div ng-if="user.is_site_admin"> -->
+
+    <!-- Breadcrumbs -->
+    <ul class="breadcrumb">
+        <li ng-click="goToUsers()"><a>Users</a><span class="divider"></span></li>
+        <li class="active">Edit user</li>
+    </ul>
+
+<!-- </div> -->
+
+<traduco-user-edit></traduco-user-edit>
