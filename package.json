@@ -1,0 +1,28 @@
+{
+  "name": "Traduco_client",
+  "version": "0.1.0",
+  "description": "Official client of the Traduco project",
+  "main": "Gruntfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Traduco/Traduco_client.git"
+  },
+  "keywords": [
+    "Traduco",
+    "Traduco-client",
+    "front-end"
+  ],
+  "author": "Pierre Laurac",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Traduco/Traduco_client/issues"
+  },
+  "homepage": "https://github.com/Traduco/Traduco_client",
+  "devDependencies": {
+    "grunt": "^0.4.4",
+    "grunt-contrib-uglify": "^0.4.0"
+  }
+}
