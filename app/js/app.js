@@ -21,12 +21,16 @@ traducoApp.config(['$routeProvider', '$httpProvider',
         controller: 'LoginCtrl'
       }).
       when('/projects', {
-        templateUrl: 'partials/project-list.html',
+        templateUrl: 'partials/project/project-list.html',
         controller: 'ProjectListCtrl'
       }).
       when('/projects/new', {
-        templateUrl: 'partials/phone-detail.html',
-        controller: 'PhoneDetailCtrl'
+        templateUrl: 'partials/project/project-new.html',
+        controller: 'ProjectCtrl'
+      }).
+      when('/projects/:id/edit', {
+        templateUrl: 'partials/project/project-edit.html',
+        controller: 'ProjectCtrl'
       }).
       when('/users', {
         templateUrl: 'partials/user/user-list.html',

@@ -1,0 +1,115 @@
+<div class="page-header page-header-projects">
+    <div class="right-buttons-header">
+        <% if is_project_admin %>
+            <%= link_to "Edit", edit_project_path(@project), :class => "btn" %>
+            <button type="button" data-toggle="modal" data-target="#modal_confirm_delete" class="btn btn-danger">Delete</button>
+        <% end %>
+    </div>
+    <h1 ng-model="project.name"></h1>
+</div>
+
+<ul class="breadcrumb">
+    <li><a ng-click="goToProjects()">Projects</a> <span class="divider"></span></li>
+    <li class="active" ng-model="project.name"></li>
+</ul>
+
+<%= render :partial => "common/alerts" %>
+
+<ul class="nav nav-tabs" id="project-tabs">
+    <li<%= raw ' class="active"' if @tab == :translations || !is_project_admin %>><a data-tabname="translations" href="#translations">Translations</a></li>
+
+    <% if is_project_admin %>
+        <li<%= raw ' class="active"' if @tab == :files %>><a data-tabname="files" href="#files">Files</a></li>
+    <% end %>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane<%= raw " active" if @tab == :translations || !is_project_admin %>" id="translations">
+        <% if is_project_admin %>
+            <div class="right-buttons">
+                <%= link_to "Add new translation", new_project_translation_path(@project), :class => "btn" %>
+            </div>
+        <% end %>
+        <table class="table table-languages">
+            <thead>
+                <tr>
+                    <th>Language</th>
+                    <th>Progress</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @translations.each do |translation| %>
+                    <tr>
+                        <td>
+                            <%= link_to translation.language.name, project_translation_path(@project, translation) %>
+                        <td>
+                            <a href="#">
+                                <div class="progress-container">
+                                    <div class="progress">
+                                        <div class="bar" style="width: <%= get_percentage(translation[:translated_strings], @project[:total_strings]) %>%;"></div>
+                                    </div>
+                                </div>
+
+                                <%= translation[:translated_strings] %>/<%= @project[:total_strings] %> strings
+                            </a>                          
+                        </td>
+                        <td>
+                            <a href="#">
+                                <span class="label label-success">status</span>
+                            </a>
+                        </td>
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
+    <% if is_project_admin %>
+        <div class="tab-pane<%= raw " active" if @tab == :files %>" id="files">
+            <div class="right-buttons">
+                <%= link_to "Pull", action_project_path(@project, "pull"), :class => "btn btn-primary" %>
+                <%= link_to "Push", action_project_path(@project, "push"), :class => "btn btn-info" %>
+                <%= link_to "Add new files", addfiles_project_path(@project), :class => "btn" %>
+            </div>
+            <table class="table table-files">
+                <thead>
+                    <tr>
+                        <th>Path</th>
+                        <th>Progress</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @project.sources.each do |source| %>
+                        <tr>
+                            <td><%= source.file_path %></td>
+                            <td>
+                                <div class="progress-container">
+                                    <div class="progress">
+                                        <div class="bar" style="width: <%= get_percentage(source[:translated_strings], source[:total_strings]) %>%;"></div>
+                                    </div>
+                                </div>
+
+                                <%= get_percentage(source[:translated_strings], source[:total_strings]) %>% of <%= source.keys.count %> strings
+                            </td>
+                            <td class="cell-link">
+                                <%= link_to project_source_path(@project, source), :method => :delete do %>
+                                    <i class="icon-remove"></i> Delete
+                                <% end %>
+                            </td>
+                        </tr>
+                    <% end %>
+                </tbody>
+            </table>
+        </div>
+    <% end %>
+</div>
+
+<% if is_project_admin %>
+    <%= render :partial => "common/simple_modal", :locals => {
+            :modal_id => "modal_confirm_delete",
+            :title => "Confirm deletion",
+            :message => "Are you sure that you want to delete this project? This action can't be undone.",
+            :button => link_to("Confirm deletion", @project, :method => :delete, :class => "btn btn-danger")
+        } %>
+<% end %>

@@ -1,0 +1,13 @@
+<!-- Header -->
+<div class="page-header page-header-projects">
+    <h1>{{project.name}} <small>Edit project</small></h1>
+</div>
+
+<!-- Breadcrumbs -->
+<ul class="breadcrumb">
+    <li><a ng-click="goToProjects()">Projects</a> <span class="divider"></span></li>
+    <li><a ng-click="goToProject(project)">{{project.name}}</a> <span class="divider"></span></li>
+    <li class="active">Edit project</li>
+</ul>
+
+<traduco-project-edit></traduco-project-edit>

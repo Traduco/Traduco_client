@@ -11,7 +11,7 @@
         <div>Status</div>
     </div>
     <div class="body">
-        <div class="row" ng-repeat="project in projects" ng-click="openProject()">
+        <div class="row" ng-repeat="project in projects" ng-click="editProject(project)">
             <div class="project-name">{{project.name}}</div>
             <div class="project-admin">{{project.users}}</div>
             <div class="project-progress">
