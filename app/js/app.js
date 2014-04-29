@@ -3,7 +3,8 @@ var traducoApp = angular.module('traducoApp', [
   'ngResource',
   'traducoControllers',
   'traducoFactories',
-  'traducoDirectives'
+  'traducoDirectives',
+  'ui.bootstrap'
 ]);
 
 traducoApp.config(['$routeProvider', '$httpProvider',
@@ -16,35 +17,39 @@ traducoApp.config(['$routeProvider', '$httpProvider',
 
     // Taking care of routing
     $routeProvider.
-      when('/login', {
+    when('/login', {
         templateUrl: 'partials/login.html',
         controller: 'LoginCtrl'
-      }).
-      when('/projects', {
+    }).
+    when('/projects', {
         templateUrl: 'partials/project/project-list.html',
         controller: 'ProjectListCtrl'
-      }).
-      when('/projects/new', {
+    }).
+    when('/projects/:id', {
+        templateUrl: 'partials/project/project-show.html',
+        controller: 'ProjectCtrl'
+    }).
+    when('/projects/new', {
         templateUrl: 'partials/project/project-new.html',
         controller: 'ProjectCtrl'
-      }).
-      when('/projects/:id/edit', {
+    }).
+    when('/projects/:id/edit', {
         templateUrl: 'partials/project/project-edit.html',
         controller: 'ProjectCtrl'
-      }).
-      when('/users', {
+    }).
+    when('/users', {
         templateUrl: 'partials/user/user-list.html',
         controller: 'UserListCtrl'
-      }).
-      when('/users/new', {
+    }).
+    when('/users/new', {
         templateUrl: 'partials/user/user-new.html',
         controller: 'UserCtrl'
-      }).
-      when('/users/:id/edit', {
+    }).
+    when('/users/:id/edit', {
         templateUrl: 'partials/user/user-edit.html',
         controller: 'UserCtrl'
-      }).
-      otherwise({
+    }).
+    otherwise({
         redirectTo: '/login'
-      });
+    });
   }]);

@@ -18,9 +18,9 @@ traducoControllers.controller('ProjectListCtrl', ['$scope', '$http', '$location'
 
     	}
 
-        $scope.editProject = function(project) {
+        $scope.goToProject = function(project) {
             debugger;
-            $location.path ('/projects/' + project.id + '/edit');
+            $location.path ('/projects/' + project.id);
         }
   	}
 ]);

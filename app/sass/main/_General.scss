@@ -6,6 +6,16 @@
 	float: right;
 }
 
+.right-buttons {
+	text-align: right;
+}
+
 .row div {
 	display: inline-block;
+}
+
+ul {
+	&.nav-tabs {
+		margin-bottom: 15px;
+	}
 }

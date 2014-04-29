@@ -13,8 +13,18 @@
 }
 
 /* line 9, ../sass/main/_General.scss */
+.right-buttons {
+  text-align: right;
+}
+
+/* line 13, ../sass/main/_General.scss */
 .row div {
   display: inline-block;
+}
+
+/* line 18, ../sass/main/_General.scss */
+ul.nav-tabs {
+  margin-bottom: 15px;
 }
 
 /*
